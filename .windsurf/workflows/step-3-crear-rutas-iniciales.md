@@ -1,0 +1,34 @@
+---
+description: Crear Backend API Inicial
+auto_execution_mode: 1
+---
+
+Aquí está el Step 3 mejorado con documentación sobre la estructura de datos de la colección:
+
+Step 3 — Crear Backend API con MongoDB para Listings de Airbnb (Solo Lectura)
+Objetivo: Crear endpoints REST en /api para operaciones de lectura GET sobre la colección listingsAndReviews de MongoDB usando Node 22 Express TypeScript y Mongoose 8.x siguiendo patrón routes controllers models.
+Contexto de la colección: La colección listingsAndReviews contiene 5555 documentos de propiedades de Airbnb. Los documentos tienen campos con tipos especiales de MongoDB como price que es un objeto con $numberDecimal, bathrooms también con $numberDecimal, y dates que son objetos con $date. Las imágenes vienen en un objeto images con picture_url. La ubicación viene en address con campos market para ciudad, suburb, country y location con coordenadas. El host viene en un objeto host completo. Reviews es un array de objetos con fecha y comentarios.
+Instrucciones para Cascade:
+En /api instala las dependencias adicionales que necesites para trabajar con Mongoose dotenv helmet y express-rate-limit más sus types de TypeScript.
+Crea un archivo .env en /api con las variables MONGODB_URI PORT y NODE_ENV. IMPORTANTE: La URI de Mongo debe incluir el nombre de la base de datos sample_airbnb al final de la URI antes de los query params. Ejemplo de formato: mongodb+srv://usuario:password@cluster.mongodb.net/sample_airbnb?retryWrites=true. La URI debe venir del .env siempre nunca hardcodeada.
+Configura la conexión a MongoDB con Mongoose en un archivo de config separado que exporte una función para conectar. Implementa retry logic por si falla la primera conexión y agrega un healthcheck endpoint básico en GET /api/v1/health que verifique el estado de la conexión a Mongo.
+Crea el modelo de Mongoose para Listing en /api/src/models/Listing.ts que use la colección listingsAndReviews. IMPORTANTE: Configura el modelo con collection: 'listingsAndReviews' en las opciones del schema porque ese es el nombre exacto en Mongo. Define el schema con strict false o Mixed types para permitir la estructura flexible de Mongo. Los campos principales son: _id como String, name, summary, description, property_type, room_type, price como Mixed o Schema.Types.Decimal128, bedrooms, beds, accommodates como Number, bathrooms como Mixed, images como objeto con picture_url, address como objeto con market suburb country y location con type Point y coordinates, host como objeto con host_id host_name host_picture_url, reviews como Array, amenities como Array de Strings, review_scores como objeto con ratings, number_of_reviews. Usa timestamps false porque Mongo ya tiene sus propios campos de fecha. Define índices apropiados si es necesario.
+Implementa tres controladores en /api/src/controllers/listingController.ts:
+El controlador getAllListings debe manejar la lógica de paginación aceptando query params page con default 1 y limit con default 10 y maxLimit de 100. Calcula el skip correcto para la paginación multiplicando page menos 1 por limit. Usa Listing.countDocuments para obtener totalItems y calcular totalPages. Usa Listing.find con skip y limit. La respuesta debe incluir en data un objeto con listings array y pagination con currentPage totalPages totalItems itemsPerPage hasNextPage calculado como currentPage menor que totalPages y hasPreviousPage calculado como currentPage mayor que 1.
+El controlador getListingById debe obtener un listing específico por su ID usando el path param id. IMPORTANTE: El _id en esta colección es String no ObjectId así que no uses ObjectId.isValid. Simplemente busca con Listing.findById o Listing.findOne con _id igual al param. Si el listing no existe retorna 404 con mensaje apropiado. Si existe retorna el listing completo en data.
+El controlador searchListings debe permitir búsquedas con query params opcionales como property_type bedrooms beds min_price max_price y market para ciudad. Implementa también paginación con page y limit. Construye un query object dinámico. Para property_type usa match exacto. Para bedrooms y beds usa match exacto o gte.Paraminpriceymaxpricenecesitasaccederalcampoprice.gte. Para min_price y max_price necesitas acceder al campo price.
+gte.Paraminp​riceymaxp​ricenecesitasaccederalcampoprice.numberDecimal y convertirlo o hacer queries especiales porque Mongo guarda decimals en formato especial. Para market busca en address.market. La respuesta debe incluir listings encontrados y pagination igual que getAllListings con hasNextPage y hasPreviousPage.
+
+Todos los responses deben seguir el formato con statusCode message y data.
+Define las rutas en /api/src/routes/listingRoutes.ts que mapeen los endpoints REST a los controladores. Usa el prefijo /api/v1/listings.
+Endpoints a implementar en este orden exacto:
+
+GET /api/v1/listings/search para búsquedas con filtros usando query params
+GET /api/v1/listings/:id para obtener un listing específico por ID
+GET /api/v1/listings para obtener todos los listings con paginación usando query params page y limit
+
+IMPORTANTE: La ruta de search debe ir ANTES de la ruta con :id para evitar que Express interprete search como un ID.
+Actualiza src/index.ts para importar y usar las rutas configurar middlewares de seguridad como helmet cors y rate-limit conectar a Mongo antes de levantar el servidor y manejar errores globalmente. Usa el healthcheck endpoint para verificar conexión a Mongo.
+Configura CORS para permitir requests desde http://localhost:5173 que es donde corre el frontend.
+Todos los endpoints deben retornar JSON con statusCode message y data. Los errores deben retornar statusCode message y error con code y details. Implementa validación básica en los controladores para query params y path params asegurando que sean del tipo correcto y dentro de rangos válidos.
+Resultado esperado: El backend en puerto 3000 tiene tres endpoints funcionales: listar todos con paginación, obtener uno por ID string, y buscar con filtros opcionales también paginado. Todas las respuestas incluyen metadata de paginación cuando aplica con los campos correctos hasNextPage y hasPreviousPage. La conexión a Mongo es estable con retry logic y apunta correctamente a la base de datos sample_airbnb y colección listingsAndReviews. El código está organizado en routes controllers y models siguiendo las convenciones del proyecto. Los 5555 documentos son accesibles desde el API retornando la estructura correcta con campos como price.$numberDecimal, images.picture_url, address.market para ciudad, y toda la metadata correctamente.
