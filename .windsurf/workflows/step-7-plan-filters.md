@@ -1,32 +1,32 @@
 ---
-description: Planificar el sistema para filtrar
+description: Plan the filtering system
 auto_execution_mode: 1
 ---
 
-Tarea:
-Revisar si los filtros ya están implementados en el backend y diseñar un plan de implementación en React para usarlos.
+Task:
+Check if filters are already implemented in the backend and design an implementation plan in React to use them.
 
-Instrucciones:
-	1.	Verificar Backend
-UTILIZA EL MCP De MongoDB para buscar en la base de datos y entender el esquema si es necesario
-	•	Confirmar si los filtros ya existen en el backend.
-	•	Identificar qué endpoint(s) permiten filtrar propiedades y qué parámetros aceptan (ej. ubicación, tipo, habitaciones, precio, amenidades).
-	•	Documentar el modelo de datos que devuelve el backend.
-	2.	Plan de Integración en React
-	•	Definir qué filtros estarán disponibles en la UI.
-	•	Establecer cómo se conectará cada filtro con los parámetros del endpoint.
-	•	Describir la estructura de estado necesaria (ej. filtros seleccionados, resultados filtrados).
-	•	Definir cómo se actualizan los resultados al aplicar o limpiar filtros.
+Instructions:
+	1.	Verify Backend
+USE THE MongoDB MCP to search in the database and understand the schema if necessary
+	•	Confirm if filters already exist in the backend.
+	•	Identify which endpoint(s) allow property filtering and what parameters they accept (e.g. location, type, bedrooms, price, amenities).
+	•	Document the data model that the backend returns.
+	2.	React Integration Plan
+	•	Define which filters will be available in the UI.
+	•	Establish how each filter will connect with the endpoint parameters.
+	•	Describe the necessary state structure (e.g. selected filters, filtered results).
+	•	Define how results are updated when applying or clearing filters.
 
-	3.	Plan de Implementación por fases
+	3.	Implementation Plan by Phases
 
-	4.	Archivo MD
-	•	Generar un archivo .md con secciones claras:
-	•	Backend (endpoints y parámetros disponibles)
-	•	Modelo de datos esperado
-	•	Plan de integración en React
-	•	Pasos de implementación (alto nivel)
-	•	Próximos pasos
+	4.	MD File
+	•	Generate a .md file with clear sections:
+	•	Backend (endpoints and available parameters)
+	•	Expected data model
+	•	React integration plan
+	•	Implementation steps (high level)
+	•	Next steps
 
-Formato esperado:
-Un documento corto, claro, sin ejemplos de código, que con un vistazo muestre el plan completo.
+Expected Format:
+A short, clear document, without code examples, that shows the complete plan at a glance.

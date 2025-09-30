@@ -2,57 +2,61 @@
 trigger: always_on
 ---
 
-Estructura del proyecto
-	•	/app (frontend): React 19.x, TypeScript, React-Bootstrap, Axios.
-	•	/api (backend): Node.js 22 LTS, Express, TypeScript, MongoDB + Mongoose (8.x).
-	•	Patrón de arquitectura (API): routes/ → controllers/ → models/.
-	•	models/: esquemas y validaciones Mongoose.
-	•	controllers/: lógica de negocio (CRUD, DTOs).
-	•	routes/: mapea endpoints a controladores.
-	•	Conexión Mongo centralizada con retry y healthcheck.
+---
+trigger: always_on
+---
 
-Lenguaje, paquetes y versiones
-	•	TypeScript SIEMPRE (frontend y backend).
-	•	Gestor: npm.
-	•	Node requerido: v22.
-	•	Si la máquina no tiene Node, instalar Node 22 y verificar con node -v.
+Project Structure
+	- /app (frontend): React 19.x, TypeScript, React-Bootstrap, Axios.
+	- /api (backend): Node.js 22 LTS, Express, TypeScript, MongoDB + Mongoose (8.x).
+	- Architecture pattern (API): routes/ → controllers/ → models/.
+	- models/: Mongoose schemas and validations.
+	- controllers/: business logic (CRUD, DTOs).
+	- routes/: maps endpoints to controllers.
+	- Centralized Mongo connection with retry and healthcheck.
 
-Testing y calidad
-	•	Testing: Jest (unitario e integración).
-	•	Coverage mínimo: 80%.
-	•	Lint/format: ESLint + Prettier (reglas estrictas TS).
+Language, Packages and Versions
+	- TypeScript ALWAYS (frontend and backend).
+	- Manager: npm.
+	- Required Node version: v22.
+	- If the machine doesn't have Node, install Node 22 and verify with node -v.
 
-Convenciones API
-	•	REST JSON, prefijo /api/v1.
-	•	Respuestas: siempre incluir statusCode y message en el JSON.
-	•	Ejemplo:
-{ "statusCode": 200, "message": "Operación exitosa", "data": {...} }
+Testing and Quality
+	- Testing: Jest (unit and integration).
+	- Minimum coverage: 80%.
+	- Lint/format: ESLint + Prettier (strict TS rules).
 
-	•	Errores: objetos { error: { code, message, details? } }.
-	•	Validación: DTO en controller + esquema en model.
-	•	Seguridad: solo .env para secretos y CORS restringido.
-	•	Sin JWT ni auth (no se requiere para este workshop).
+API Conventions
+	- REST JSON, prefix /api/v1.
+	- Responses: always include statusCode and message in the JSON.
+	- Example:
+{ "statusCode": 200, "message": "Successful operation", "data": {...} }
 
-Scripts npm (referencia)
-	•	npm run dev – corre app y api en modo desarrollo.
-	•	npm run build – compila TS (app y api).
-	•	npm test – ejecuta Jest con cobertura.
-	•	npm run lint / npm run typecheck – calidad de código.
+	- Errors: objects { error: { code, message, details? } }.
+	- Validation: DTO in controller + schema in model.
+	- Security: only .env for secrets and restricted CORS.
+	- No JWT or auth (not required for this workshop).
+
+npm Scripts (reference)
+	- npm run dev – runs app and api in development mode.
+	- npm run build – compiles TS (app and api).
+	- npm test – runs Jest with coverage.
+	- npm run lint / npm run typecheck – code quality.
 
 Frontend (/app)
-	•	React 19.x con TS + componentes de React-Bootstrap.
-	•	HTTP: Axios con manejo simple de errores.
-	•	Estado: local o librería ligera si es necesario.
-	•	UI: accesible y con i18n básico.
+	- React 19.x with TS + React-Bootstrap components.
+	- HTTP: Axios with simple error handling.
+	- State: local or lightweight library if needed.
+	- UI: accessible with basic i18n.
 
 Backend (/api)
-	•	Express con middlewares básicos: logging, cors, helmet, rate-limit.
-	•	Mongoose para ODM (índices, validaciones, timestamps).
-	•	Servicios separados si la lógica crece.
-	•	Jobs/cron opcionales, no bloqueantes.
+	- Express with basic middlewares: logging, cors, helmet, rate-limit.
+	- Mongoose for ODM (indexes, validations, timestamps).
+	- Separate services if logic grows.
+	- Jobs/cron optional, non-blocking.
 
 ⸻
 
-Resumen operativo
+Operational Summary
 
-Usamos React 19 + TS en /app y Node 22 + Express + TS + Mongo/Mongoose en /api. Testing con Jest, npm como gestor. La API devuelve siempre un JSON con statusCode y message. Sin JWT ni auth, solo lo necesario para construir rápido durante el workshop.
+We use React 19 + TS in /app and Node 22 + Express + TS + Mongo/Mongoose in /api. Testing with Jest, npm as manager. The API always returns a JSON with statusCode and message. No JWT or auth, only what's necessary to build quickly during the workshop.

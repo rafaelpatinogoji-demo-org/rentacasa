@@ -1,190 +1,190 @@
 # 🏡 Windsurf Workshop - RentaCasa
 
-Bienvenido al **Windsurf Workshop**! En este taller aprenderás a construir una aplicación completa de listado de propiedades tipo Airbnb usando **Windsurf Cascade** y siguiendo workflows paso a paso.
+Welcome to the **Windsurf Workshop**! In this workshop you'll learn to build a complete Airbnb-style property listing application using **Windsurf Cascade** and following step-by-step workflows.
 
-## 🎯 ¿Qué vas a construir?
+## 🎯 What will you build?
 
-Una aplicación web full-stack moderna que incluye:
+A modern full-stack web application that includes:
 
-- 🎨 **Frontend React** con TypeScript, React Bootstrap y Chart.js
-- ⚡ **Backend Node.js** con Express, TypeScript y MongoDB
-- 📊 **Dashboard de Estadísticas** con gráficas interactivas
-- 🔍 **Sistema de Filtros** avanzado
-- 📱 **Diseño Responsive** para todos los dispositivos
+- 🎨 **React Frontend** with TypeScript, React Bootstrap and Chart.js
+- ⚡ **Node.js Backend** with Express, TypeScript and MongoDB
+- 📊 **Statistics Dashboard** with interactive charts
+- 🔍 **Advanced Filter System**
+- 📱 **Responsive Design** for all devices
 
-## 🚀 Tecnologías
+## 🚀 Technologies
 
 ### Frontend (`/app`)
-- React 19.x con TypeScript
-- React Bootstrap para UI
-- Chart.js para visualizaciones
-- Axios para peticiones HTTP
-- React Router para navegación
+- React 19.x with TypeScript
+- React Bootstrap for UI
+- Chart.js for visualizations
+- Axios for HTTP requests
+- React Router for navigation
 
 ### Backend (`/api`)
 - Node.js 22 LTS
-- Express con TypeScript
+- Express with TypeScript
 - MongoDB + Mongoose 8.x
-- Arquitectura: Routes → Controllers → Services → Models
+- Architecture: Routes → Controllers → Services → Models
 
-## 📋 Prerequisitos
+## 📋 Prerequisites
 
-Antes de comenzar, asegúrate de tener:
+Before starting, make sure you have:
 
-- ✅ **Windsurf IDE** instalado
-- ✅ **Node.js 22.x** (se instalará en el Step 0)
-- ✅ **MongoDB Atlas** con la base de datos `sample_airbnb`
-- ✅ **MCP Server de MongoDB** configurado en Windsurf
+- ✅ **Windsurf IDE** installed
+- ✅ **Node.js 22.x** (will be installed in Step 0)
+- ✅ **MongoDB Atlas** with the `sample_airbnb` database
+- ✅ **MongoDB MCP Server** configured in Windsurf
 
-## 🎓 Cómo usar este Workshop
+## 🎓 How to use this Workshop
 
-Este workshop está diseñado para ser completado usando **Windsurf Cascade** y los workflows incluidos en la carpeta `.windsurf/workflows/`.
+This workshop is designed to be completed using **Windsurf Cascade** and the workflows included in the `.windsurf/workflows/` folder.
 
-### Paso a Paso
+### Step by Step
 
-Sigue los workflows en orden usando el comando `/` en Cascade:
+Follow the workflows in order using the `/` command in Cascade:
 
-#### **Step 0: Verificación de Ambiente** 
+#### **Step 0: Environment Verification** 
 ```
-/step-0-instalar-todo
+/step-0-install-all
 ```
-Verifica e instala Node.js 22.x usando NVM.
+Verify and install Node.js 22.x using NVM.
 
-#### **Step 1: Proyecto Inicial**
+#### **Step 1: Initial Project**
 ```
-/step-1-proyecto-inicial
+/step-1-initial-project
 ```
-Crea la estructura básica con React (frontend) y Express (backend). Implementa el primer endpoint "Hola Windsurf".
+Create the basic structure with React (frontend) and Express (backend). Implement the first "Hello Windsurf" endpoint.
 
-#### **Step 2: Verificar Acceso a MongoDB**
+#### **Step 2: Verify MongoDB Access**
 ```
-/step-2-verificar-acceso-mongo
+/step-2-verify-mongo-access
 ```
-Usa el MCP Server de MongoDB para verificar conectividad con la base de datos `sample_airbnb`.
+Use the MongoDB MCP Server to verify connectivity with the `sample_airbnb` database.
 
-#### **Step 3: Crear Rutas Iniciales**
+#### **Step 3: Create Initial Routes**
 ```
-/step-3-crear-rutas-iniciales
+/step-3-create-initial-routes
 ```
-Implementa el backend completo:
-- Modelo de Listing con Mongoose
-- Controladores con validación
-- Rutas GET (listado y detalle)
-- Endpoint de búsqueda con filtros
+Implement the complete backend:
+- Listing Model with Mongoose
+- Controllers with validation
+- GET Routes (listing and detail)
+- Search endpoint with filters
 
-#### **Step 4: Crear UI para Listings**
+#### **Step 4: Create UI for Listings**
 ```
-/step-4-crear-ui-get-listings
+/step-4-create-ui-get-listings
 ```
-Construye el frontend para mostrar propiedades:
-- Listado con paginación
-- Tarjetas de propiedades
-- Integración con la API
+Build the frontend to display properties:
+- Listing with pagination
+- Property cards
+- API integration
 
-#### **Step 5: Mejoras de UI**
+#### **Step 5: UI Improvements**
 ```
-/step-5-mejoras-de-ui
+/step-5-ui-improvements
 ```
-Mejora el diseño visual:
-- Estilos CSS personalizados
-- Header con glass morphism
-- Diseño responsive
-- Paleta de colores verde
+Improve the visual design:
+- Custom CSS styles
+- Header with glass morphism
+- Responsive design
+- Green color palette
 
-#### **Step 6: Modal de Detalle**
+#### **Step 6: Detail Modal**
 ```
-/step-6-crear-ui-modal-detalle
+/step-6-create-ui-detail-modal
 ```
-Implementa un modal para ver detalles completos de cada propiedad.
+Implement a modal to view complete details of each property.
 
-#### **Step 7: Sistema de Filtros**
+#### **Step 7: Filter System**
 ```
 /step-7-plan-filters
 ```
-Agrega filtros avanzados:
-- Por tipo de propiedad
-- Por rango de precio
-- Por número de habitaciones
-- Por ubicación
+Add advanced filters:
+- By property type
+- By price range
+- By number of bedrooms
+- By location
 
-#### **Step 8: API de Estadísticas**
+#### **Step 8: Statistics API**
 ```
 /step-8-statistics-api
 ```
-Crea el módulo de estadísticas en el backend:
-- 7 endpoints de estadísticas
-- Agregaciones de MongoDB
-- Filtros consistentes
-- Conversión de Decimal128
+Create the statistics module in the backend:
+- 7 statistics endpoints
+- MongoDB aggregations
+- Consistent filters
+- Decimal128 conversion
 
-#### **Step 9: Dashboard de Estadísticas**
+#### **Step 9: Statistics Dashboard**
 ```
-/step-9-crear-statistics-ui
+/step-9-create-statistics-ui
 ```
-Construye el dashboard con Chart.js:
+Build the dashboard with Chart.js:
 - 4 KPI Cards
-- 6 gráficas interactivas
-- Panel de filtros
-- Diseño minimalista verde
+- 6 interactive charts
+- Filter panel
+- Minimalist green design
 
-## 🎨 Diseños de Referencia
+## 🎨 Reference Designs
 
-En la carpeta `/ui` encontrarás:
-- `design.png` - Diseño del listado de propiedades
-- `modal.png` - Diseño del modal de detalle
+In the `/ui` folder you'll find:
+- `design.png` - Property listing design
+- `modal.png` - Detail modal design
 
-## 🏗️ Arquitectura del Proyecto
+## 🏗️ Project Architecture
 
 ```
 workshop_windsurf/
-├── .windsurf/           # Workflows y reglas de Windsurf
-│   ├── workflows/       # 10 workflows paso a paso
-│   └── rules/          # Reglas de idioma y tech stack
-├── api/                # Backend Node.js + Express
+├── .windsurf/           # Windsurf Workflows and rules
+│   ├── workflows/       # 10 step-by-step workflows
+│   └── rules/          # Language and tech stack rules
+├── api/                # Node.js + Express Backend
 │   ├── src/
-│   │   ├── config/     # Configuración de DB
-│   │   ├── models/     # Modelos de Mongoose
-│   │   ├── controllers/# Lógica de negocio
-│   │   ├── routes/     # Definición de rutas
-│   │   ├── services/   # Servicios (estadísticas)
-│   │   └── types/      # Tipos TypeScript
+│   │   ├── config/     # DB Configuration
+│   │   ├── models/     # Mongoose Models
+│   │   ├── controllers/# Business Logic
+│   │   ├── routes/     # Route Definitions
+│   │   ├── services/   # Services (statistics)
+│   │   └── types/      # TypeScript Types
 │   └── package.json
-├── app/                # Frontend React
+├── app/                # React Frontend
 │   ├── src/
-│   │   ├── components/ # Componentes React
-│   │   ├── pages/      # Páginas (Statistics)
-│   │   ├── services/   # Clientes API
-│   │   ├── types/      # Tipos TypeScript
-│   │   └── utils/      # Utilidades (Chart.js config)
+│   │   ├── components/ # React Components
+│   │   ├── pages/      # Pages (Statistics)
+│   │   ├── services/   # API Clients
+│   │   ├── types/      # TypeScript Types
+│   │   └── utils/      # Utilities (Chart.js config)
 │   └── package.json
-└── ui/                 # Diseños de referencia
+└── ui/                 # Reference designs
 ```
 
-## 🚦 Cómo Empezar
+## 🚦 How to Start
 
-1. **Clona este repositorio**
+1. **Clone this repository**
    ```bash
    git clone https://github.com/rafaelpatinogoji-demo-org/rentacasa.git
    cd rentacasa
    ```
 
-2. **Abre el proyecto en Windsurf**
+2. **Open the project in Windsurf**
    ```bash
    windsurf .
    ```
 
-3. **Abre Cascade** (Cmd/Ctrl + L)
+3. **Open Cascade** (Cmd/Ctrl + L)
 
-4. **Ejecuta el primer workflow**
+4. **Run the first workflow**
    ```
-   /step-0-instalar-todo
+   /step-0-install-all
    ```
 
-5. **Sigue los workflows en orden** hasta completar el proyecto
+5. **Follow the workflows in order** until you complete the project
 
-## 📚 Recursos Adicionales
+## 📚 Additional Resources
 
-### Documentación de Referencia
+### Reference Documentation
 - [React Documentation](https://react.dev)
 - [Express.js Guide](https://expressjs.com)
 - [MongoDB Mongoose](https://mongoosejs.com)
@@ -196,64 +196,64 @@ workshop_windsurf/
 - [Cascade AI Agent](https://docs.codeium.com/windsurf/cascade)
 - [Workflows Guide](https://docs.codeium.com/windsurf/workflows)
 
-## 🎯 Objetivos de Aprendizaje
+## 🎯 Learning Objectives
 
-Al completar este workshop, habrás aprendido a:
+By completing this workshop, you'll have learned to:
 
-- ✅ Usar **Windsurf Cascade** para desarrollo asistido por IA
-- ✅ Crear workflows reutilizables
-- ✅ Construir APIs REST con Express y TypeScript
-- ✅ Trabajar con MongoDB y agregaciones
-- ✅ Desarrollar interfaces con React y TypeScript
-- ✅ Implementar visualizaciones con Chart.js
-- ✅ Aplicar arquitectura limpia (Routes → Controllers → Services)
-- ✅ Manejar estado y navegación en React
-- ✅ Crear diseños responsive con Bootstrap
+- ✅ Use **Windsurf Cascade** for AI-assisted development
+- ✅ Create reusable workflows
+- ✅ Build REST APIs with Express and TypeScript
+- ✅ Work with MongoDB and aggregations
+- ✅ Develop interfaces with React and TypeScript
+- ✅ Implement visualizations with Chart.js
+- ✅ Apply clean architecture (Routes → Controllers → Services)
+- ✅ Handle state and navigation in React
+- ✅ Create responsive designs with Bootstrap
 
-## 🌟 Resultado Final
+## 🌟 Final Result
 
-Al completar todos los workflows, tendrás una aplicación completa con:
+By completing all workflows, you'll have a complete application with:
 
-- 📊 Dashboard de estadísticas con 6 gráficas interactivas
-- 🏠 Listado de propiedades con filtros avanzados
-- 🔍 Búsqueda y paginación
-- 📱 Diseño responsive y moderno
-- ⚡ API REST completa con 10+ endpoints
-- 🎨 UI profesional con paleta verde
+- 📊 Statistics dashboard with 6 interactive charts
+- 🏠 Property listing with advanced filters
+- 🔍 Search and pagination
+- 📱 Responsive and modern design
+- ⚡ Complete REST API with 10+ endpoints
+- 🎨 Professional UI with green palette
 
-## 🔗 Ver Versión Completada
+## 🔗 View Completed Version
 
-Si quieres ver el código final completo, cambia a la rama `finished-version`:
+If you want to see the complete final code, switch to the `finished-version` branch:
 
 ```bash
 git checkout finished-version
 ```
 
-## 💡 Tips para el Workshop
+## 💡 Workshop Tips
 
-1. **Lee cada workflow completo** antes de ejecutarlo
-2. **Usa Cascade** para todas las implementaciones
-3. **Verifica cada paso** antes de continuar al siguiente
-4. **Prueba la aplicación** después de cada workflow
-5. **Consulta la rama finished-version** si te atoras
+1. **Read each workflow completely** before executing it
+2. **Use Cascade** for all implementations
+3. **Verify each step** before continuing to the next
+4. **Test the application** after each workflow
+5. **Check the finished-version branch** if you get stuck
 
-## 🤝 Contribuciones
+## 🤝 Contributions
 
-Este es un proyecto educativo. Si encuentras mejoras o errores:
+This is an educational project. If you find improvements or errors:
 
-1. Crea un issue describiendo el problema
-2. O envía un pull request con la solución
+1. Create an issue describing the problem
+2. Or send a pull request with the solution
 
-## 📝 Licencia
+## 📝 License
 
-Este proyecto es de código abierto y está disponible bajo la licencia MIT.
+This project is open source and available under the MIT license.
 
-## 🙏 Créditos
+## 🙏 Credits
 
-Workshop creado para demostrar las capacidades de **Windsurf IDE** y **Cascade AI Agent**.
+Workshop created to demonstrate the capabilities of **Windsurf IDE** and **Cascade AI Agent**.
 
 ---
 
-**¡Disfruta construyendo con Windsurf! 🚀**
+**Enjoy building with Windsurf! 🚀**
 
-¿Preguntas? Abre un issue en el repositorio.
+Questions? Open an issue in the repository.
